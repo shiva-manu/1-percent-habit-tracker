@@ -6,7 +6,7 @@ import json
 import quickstart
 # import demp
 
-connection_string = "mongodb+srv://galishivamani49:Z0axU6A1qVDwemHK@cluster0.sip2w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+connection_string = ""
 client = MongoClient(connection_string)
 db = client["haabit_tracker"]
 collection = db["tasks"]
@@ -47,7 +47,7 @@ def prompt():
 @app.route('/api/get_habits', methods=['GET'])
 def get_habits():
     
-    connection_string = "mongodb+srv://galishivamani49:Z0axU6A1qVDwemHK@cluster0.sip2w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    connection_string = ""
     client = MongoClient(connection_string)
     db = client["haabit_tracker"]
     collection = db["tasks"]
@@ -59,7 +59,7 @@ def get_habits():
 
 @app.route('/api/habits/attention',methods=['GET'])
 def attention():
-    connection_string = "mongodb+srv://galishivamani49:Z0axU6A1qVDwemHK@cluster0.sip2w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    connection_string = ""
     client = MongoClient(connection_string)
     db2 = client["haabit_tracker"]  # Replace with your database name
     collection2 = db2["habits"]     # Replace with your collection name
@@ -70,7 +70,7 @@ def attention():
     for habit in habits_data:
         all.append(habit)
     client = openai.OpenAI(
-        api_key="39226150-041c-470f-a694-68e16049f954",
+        api_key="",
         base_url="https://api.sambanova.ai/v1",
     )    
     x2 = f"From the  data provided, identify 2 tasks that require attention and 2 tasks that are being done well. Provide a detailed reason for each and suggest improvements. Output strictly in JSON format with no introductory text, quotes, or additional notes outside of the JSON structure. {all}"
@@ -89,7 +89,7 @@ def attention():
 
 def prmpt(resc):
     
-    connection_string = "mongodb+srv://galishivamani49:Z0axU6A1qVDwemHK@cluster0.sip2w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    connection_string = ""
     client = MongoClient(connection_string)
     db = client["haabit_tracker"]
     collection = db["tasks"]
@@ -98,7 +98,7 @@ def prmpt(resc):
 
     # OpenAI API setup
     client = openai.OpenAI(
-        api_key="39226150-041c-470f-a694-68e16049f954",
+        api_key="",
         base_url="https://api.sambanova.ai/v1",
     )
 
