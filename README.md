@@ -1,144 +1,189 @@
-```markdown
 # 1% Habit Tracker
 
-A modern habit tracking application that empowers users to improve their lives by just 1% each day. Inspired by *Atomic Habits*, this app focuses on adaptive tracking, NLP-based smart rescheduling, and seamless integration with Google Calendar for notifications. Featuring a sleek dark theme, smooth animations, and secure Auth0 authentication, 1% Habit Tracker is designed for an intuitive and visually appealing experience.
+A modern habit tracking application that empowers users to improve their lives by just 1% each day. Inspired by *Atomic Habits*, this app focuses on adaptive tracking, smart scheduling, and seamless integration with Google Calendar for notifications.
 
-## 🌟 Features
+## 🌟 Overview
 
-- 🌙 **Modern Dark Theme**: Teal accents for a sleek, minimal aesthetic
-- 🔄 **Adaptive Habit Rescheduling**: NLP-driven rescheduling for optimized habit tracking
-- 📅 **Google Calendar Integration**: Automatic notifications and reminders via Google Calendar API
-- 🧠 **AI Analysis and Recommendations**: Insights on habits using LLaMA 3.1-powered NLP
-- 📊 **Progress Tracking**: Visual feedback on habit progress with real-time adjustments for unexpected tasks
-- 🔒 **Secure Authentication**: Auth0 integration ensures safe and easy login
-- 📱 **Fully Responsive Design**: Optimized for mobile, tablet, and desktop
+1% Habit Tracker is a full-stack web application designed to help users build and maintain positive habits through incremental daily improvements. The application combines modern technology with proven habit-forming strategies to create a powerful tool for personal development.
+
+### Key Benefits
+- Track daily progress with visual feedback
+- Smart scheduling system that adapts to your routine
+- Data-driven insights for habit optimization
+- Beautiful, intuitive dark-mode interface
+- Secure authentication and data privacy
+- Cross-platform accessibility
 
 ## 🛠 Tech Stack
 
-- **Frontend**: React with ShadCN and Vite for fast, modern UI
-- **Backend**: Flask for API endpoints and habit analysis
-- **Database**: MongoDB Atlas for habit and user data management
-- **AI/NLP**: LLaMA 3.1 for personalized habit analysis and recommendations
-- **Calendar Integration**: Google Calendar API for notifications
-- **Authentication**: Auth0 for secure login
+### Frontend
+- **React 18** with TypeScript for type-safe code
+- **Vite** for optimized development and builds
+- **ShadcnUI** + **Tailwind CSS** for modern, responsive design
+- **Framer Motion** for smooth animations
+- **Auth0** for secure authentication
+- **React Query** for efficient data fetching
+- **Zustand** for state management
+
+### Backend
+- **Flask** REST API with Python 3.11
+- **MongoDB** for scalable data persistence
+- **Google Calendar API** for scheduling integration
+- **JWT** for secure authentication
+- **OpenAI API** for habit insights
 
 ## 📂 Project Structure
 
 ```
 1-percent-habit-tracker/
-├── public/
-│   ├── favicon.ico
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   └── robots.txt
-├── src/
-│   ├── components/
-│   │   ├── Landing.jsx          # Main landing page
-│   │   ├── Onboarding.jsx       # User onboarding flow
-│   │   ├── UserProfile.jsx      # User profile management
-│   │   ├── HabitSelection.jsx   # Habit selection interface
-│   │   └── ui/                  # Reusable UI components
-│   ├── pages/
-│   │   ├── Dashboard.jsx        # User dashboard
-│   │   └── CalendarIntegration.jsx # Google Calendar setup
-│   ├── styles/
-│   │   └── common.css           # Shared styles
-│   ├── App.js                   # Root component
-│   ├── index.js                 # Application entry point
-│   ├── api/                     # API requests and setup
-│   │   └── googleCalendar.js    # Google Calendar API integration
-├── server/
-│   ├── app.py                   # Flask server entry point
-│   ├── models/                  # MongoDB models
-│   └── nlp/                     # NLP-based rescheduling with LLaMA 3.1
-├── .env                         # Environment variables
-├── .gitignore                   # Git ignore rules
-├── package.json                 # Project dependencies
-└── README.md                    # Project documentation
+├── client/                    # React + TypeScript frontend
+│   ├── src/                  
+│   │   ├── components/       # Reusable UI components
+│   │   ├── pages/           # Main application pages
+│   │   ├── lib/             # Utilities and helpers
+│   │   ├── hooks/           # Custom React hooks
+│   │   ├── store/           # Zustand store configurations
+│   │   └── styles/          # Global styles and Tailwind config
+│   ├── public/              # Static assets
+│   └── package.json         # Frontend dependencies
+│
+├── server/                    # Flask backend
+│   ├── api/                  # REST endpoints
+│   │   ├── auth/            # Authentication routes
+│   │   ├── habits/          # Habit management routes
+│   │   └── analytics/       # Analytics and insights
+│   ├── models/              # Database models
+│   ├── services/            # Business logic
+│   └── requirements.txt     # Python dependencies
+│
+├── .github/                  # GitHub Actions workflows
+├── docker/                   # Docker configurations
+├── docs/                     # Documentation
+└── README.md                # This file
 ```
 
-## 📥 Getting Started
+## 🚀 Getting Started
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/1-percent-habit-tracker.git
-   ```
+1. **Prerequisites**
+   - Node.js 18+
+   - Python 3.11+
+   - MongoDB
+   - Git
 
-2. **Install dependencies**:
+2. **Clone the repository**
    ```bash
+   git clone https://github.com/soulsociety/1-percent-habit-tracker.git
    cd 1-percent-habit-tracker
-   npm install
    ```
 
-3. **Configure Environment Variables**:
-   - Create a `.env` file in both the root and server directories and add your credentials:
-     ```env
-     REACT_APP_AUTH0_DOMAIN=your-auth0-domain
-     REACT_APP_AUTH0_CLIENT_ID=your-auth0-client-id
-     REACT_APP_GOOGLE_CALENDAR_API_KEY=your-google-api-key
-     FLASK_ENV=development
-     MONGO_URI=your-mongo-db-uri
-     ```
-
-4. **Run the app**:
+3. **Frontend Setup**
    ```bash
-   npm start
+   cd client
+   npm install
+   cp .env.example .env    # Configure your environment variables
+   npm run dev
    ```
 
-## ⚙️ Environment Variables
+4. **Backend Setup**
+   ```bash
+   cd server
+   python -m venv venv
+   source venv/bin/activate  # or `venv\Scripts\activate` on Windows
+   pip install -r requirements.txt
+   cp .env.example .env    # Configure your environment variables
+   python run.py
+   ```
 
-Create a `.env` file in both the root and server directories with the following variables:
+## 🔑 Environment Configuration
 
+### Frontend (.env)
 ```env
-REACT_APP_AUTH0_DOMAIN=your-auth0-domain
-REACT_APP_AUTH0_CLIENT_ID=your-auth0-client-id
-REACT_APP_GOOGLE_CALENDAR_API_KEY=your-google-api-key
-FLASK_ENV=development
-MONGO_URI=your-mongo-db-uri
+VITE_AUTH0_DOMAIN=your-domain
+VITE_AUTH0_CLIENT_ID=your-client-id
+VITE_API_URL=http://localhost:5000
+VITE_GOOGLE_CLIENT_ID=your-google-client-id
 ```
+
+### Backend (.env)
+```env
+FLASK_APP=run.py
+FLASK_ENV=development
+MONGODB_URI=your-mongodb-uri
+JWT_SECRET_KEY=your-secret-key
+OPENAI_API_KEY=your-openai-key
+GOOGLE_CLIENT_SECRET=your-google-secret
+```
+
+## 📱 Core Features
+
+### Habit Management
+- Create, edit, and delete habits
+- Set custom schedules and reminders
+- Track completion rates and streaks
+- Add notes and reflections
+
+### Smart Scheduling
+- Google Calendar integration
+- AI-powered scheduling suggestions
+- Flexible rescheduling options
+- Time zone support
+
+### Analytics & Insights
+- Progress visualization
+- Success rate analysis
+- Habit correlation insights
+- Personalized recommendations
+
+### User Experience
+- Responsive design for all devices
+- Dark/Light mode support
+- Offline capability
+- Smooth animations
+- Accessibility features
 
 ## 🧪 Testing
 
-The project includes a comprehensive test suite using Jest and React Testing Library. To run the tests:
-
 ```bash
+# Frontend tests
+cd client
 npm test
+
+# Backend tests
+cd server
+python -m pytest
 ```
-
-## 📊 Performance Monitoring
-
-The application includes web vitals reporting for monitoring performance metrics. This helps track and improve the user experience over time.
-
-## 🚀 Future Enhancements
-
-- **Wearable Device Integration**: Connect with fitness bands or smartwatches
-- **Social Sharing**: Share progress and achievements with friends
-- **Gamification**: Add rewards, streaks, and badges
-- **Advanced AI Insights**: AI-powered personalized habit recommendations
-- **Community Feature**: Social groups for interaction and encouragement
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how you can help:
+We welcome contributions! Please follow these steps:
+
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add: AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.
 
 ## 📜 License
 
-[MIT](LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- **Design**: Inspired by modern UI/UX trends
-- **Icons**: Provided by Lucide React
-- **Animations**: Powered by Framer Motion
-- **NLP**: LLaMA 3.1 for habit analysis and recommendations
+- [Atomic Habits](https://jamesclear.com/atomic-habits) by James Clear for inspiration
+- [ShadcnUI](https://ui.shadcn.com/) for beautiful components
+- [Auth0](https://auth0.com/) for authentication
+- [Framer Motion](https://www.framer.com/motion/) for animations
+- [OpenAI](https://openai.com/) for AI capabilities
+
+## 📞 Support
+
+- Documentation: [docs/](./docs)
+- Issues: [GitHub Issues](https://github.com/soulsociety/1-percent-habit-tracker/issues)
+- Discord: [Join our community](https://discord.gg/habittracker)
+- Email: support@1percenthabit.com
 
 ---
 
-Feel free to reach out with any questions or suggestions for improvements!
-```
+Built with ❤️ by Soul Society
