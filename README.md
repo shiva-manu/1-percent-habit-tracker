@@ -177,12 +177,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Framer Motion](https://www.framer.com/motion/) for animations
 - [OpenAI](https://openai.com/) for AI capabilities
 
-## 📞 Support
-
-- Documentation: [docs/](./docs)
-- Issues: [GitHub Issues](https://github.com/soulsociety/1-percent-habit-tracker/issues)
-- Discord: [Join our community](https://discord.gg/habittracker)
-- Email: support@1percenthabit.com
 
 ---
 
