@@ -96,7 +96,7 @@ def update_calendar_with_mongodb_data(service, events):
 
 def main():
     # Connect to MongoDB
-    uri = "mongodb+srv://galishivamani49:Z0axU6A1qVDwemHK@cluster0.sip2w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    uri = ""
     client = MongoClient(uri)
     db = client["haabit_tracker"]  # Replace with your database name
     collection = db["tasks"]
